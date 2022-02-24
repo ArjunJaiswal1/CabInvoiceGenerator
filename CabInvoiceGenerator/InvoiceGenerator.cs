@@ -80,7 +80,7 @@ namespace CabInvoiceGenerator
 
 
         }
-        public double CalculateFare(Ride[] rides)
+        public InvoiceSummary CalculateFare(Ride[] rides)
         {
             double totalFare = 0;
             try
@@ -98,7 +98,8 @@ namespace CabInvoiceGenerator
                 }
             }
             double res = Math.Max(totalFare, MINIMUM_FARE);
-            return res;
+            return new InvoiceSummary(rides.Length, res);
+
         }
     }
 }
